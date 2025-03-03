@@ -3,10 +3,7 @@ import abc
 class WordValidator:
     @staticmethod
     def validate(word: str) -> bool:
-        for letter in word:
-            if not (letter.isalpha() or letter == ' '):  # Allow letters and spaces
-                return False
-        return True
+        return all((letter.isalpha() or letter == ' ') for letter in word)
 
 class AbstractWord(abc.ABC):
     @staticmethod
